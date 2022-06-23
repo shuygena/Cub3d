@@ -12,7 +12,7 @@
 
 #include "cub3d.h"
 
-void	ft_sprite_raycast(t_cub *cub)
+void	ft_sprite_raycast(t_cub *cub) //there is bug
 {
 	int	i;
 
