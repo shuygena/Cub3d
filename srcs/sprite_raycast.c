@@ -40,16 +40,21 @@ void	ft_sprite_raycast(t_cub *cub) //there is bug
 void	ft_sort(t_cub *cub)
 {
 	int		i;
+	int		j;
 	t_arr	tmp;
 
-	i = 0;
-	while (++i < cub->sprite_count)
+	j = -1;
+	while (++j < cub->sprite_count - 1)
 	{
-		if (cub->sprite.sprites[i].dist > cub->sprite.sprites[i - 1].dist)
+		i = j;
+		while (++i < cub->sprite_count)
 		{
-			tmp = cub->sprite.sprites[i];
-			cub->sprite.sprites[i] = cub->sprite.sprites[i - 1];
-			cub->sprite.sprites[i - 1] = tmp;
+			if (cub->sprite.sprites[i].dist > cub->sprite.sprites[i - 1].dist)
+			{
+				tmp = cub->sprite.sprites[i];
+				cub->sprite.sprites[i] = cub->sprite.sprites[i - 1];
+				cub->sprite.sprites[i - 1] = tmp;
+			}
 		}
 	}
 }
