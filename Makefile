@@ -49,7 +49,7 @@ bonus:
 
 $(NAME): $(LIBS) $(OBJS) $(OBJS_ADD)
 	rm -rf $(OBJS_REMOVE)
-	$(CC) $(CFLAGS) $(MLXFLAGS) $(LIBS) $(OBJS) $(OBJS_ADD) -o $(NAME)
+	$(CC) $(CFLAGS) $(MLXFLAGS) $(LIBS) $(OBJS) $(OBJS_ADD) -Lmlx -o $(NAME)
 
 libft/libft.a: libft/*.c libft.h
 	@$(MAKE) -C libft

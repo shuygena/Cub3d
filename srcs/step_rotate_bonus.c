@@ -18,13 +18,13 @@ void	ft_up(t_cub *cub)
 	int	j;
 
 	i = (int)cub->gamer.posY;
-	j = (int)(cub->gamer.posX + cub->gamer.dirX * 0.05);
+	j = (int)(cub->gamer.posX + cub->gamer.dirX * 0.1);
 	if (cub->map[i][j] != '1' && cub->map[i][j] != '2')
-		cub->gamer.posX += cub->gamer.dirX * 0.05;
-	i = (int)(cub->gamer.posY + cub->gamer.dirY * 0.05);
+		cub->gamer.posX += cub->gamer.dirX * 0.1;
+	i = (int)(cub->gamer.posY + cub->gamer.dirY * 0.1);
 	j = (int)cub->gamer.posX;
 	if (cub->map[i][j] != '1' && cub->map[i][j] != '2')
-		cub->gamer.posY += cub->gamer.dirY * 0.05;
+		cub->gamer.posY += cub->gamer.dirY * 0.1;
 }
 
 void	ft_down(t_cub *cub)
@@ -33,13 +33,13 @@ void	ft_down(t_cub *cub)
 	int	j;
 
 	i = (int)(cub->gamer.posY);
-	j = (int)(cub->gamer.posX - cub->gamer.dirX * 0.05);
+	j = (int)(cub->gamer.posX - cub->gamer.dirX * 0.1);
 	if (cub->map[i][j] != '1' && cub->map[i][j] != '2')
-		cub->gamer.posX -= cub->gamer.dirX * 0.05;
-	i = (int)(cub->gamer.posY - cub->gamer.dirY * 0.05);
+		cub->gamer.posX -= cub->gamer.dirX * 0.1;
+	i = (int)(cub->gamer.posY - cub->gamer.dirY * 0.1);
 	j = (int)(cub->gamer.posX);
 	if (cub->map[i][j] != '1' && cub->map[i][j] != '2')
-		cub->gamer.posY -= cub->gamer.dirY * 0.05;
+		cub->gamer.posY -= cub->gamer.dirY * 0.1;
 }
 
 void	ft_right_rotate(t_cub *cub)
@@ -49,11 +49,11 @@ void	ft_right_rotate(t_cub *cub)
 
 	oldDirX = cub->gamer.dirX;
 	oldPlaneX = cub->gamer.planeX;
-	cub->gamer.dirX = cub->gamer.dirX * cos(0.05) - cub->gamer.dirY * sin(0.05);
-	cub->gamer.dirY = oldDirX * sin(0.05) + cub->gamer.dirY * cos(0.05);
-	cub->gamer.planeX = cub->gamer.planeX * cos(0.05) - cub->gamer.planeY
-		* sin(0.05);
-	cub->gamer.planeY = oldPlaneX * sin(0.05) + cub->gamer.planeY * cos(0.05);
+	cub->gamer.dirX = cub->gamer.dirX * cos(0.1) - cub->gamer.dirY * sin(0.1);
+	cub->gamer.dirY = oldDirX * sin(0.1) + cub->gamer.dirY * cos(0.1);
+	cub->gamer.planeX = cub->gamer.planeX * cos(0.1) - cub->gamer.planeY
+		* sin(0.1);
+	cub->gamer.planeY = oldPlaneX * sin(0.1) + cub->gamer.planeY * cos(0.1);
 }
 
 void	ft_left_rotate(t_cub *cub)
@@ -63,12 +63,12 @@ void	ft_left_rotate(t_cub *cub)
 
 	oldDirX = cub->gamer.dirX;
 	oldPlaneX = cub->gamer.planeX;
-	cub->gamer.dirX = cub->gamer.dirX * cos(-0.05) - cub->gamer.dirY
-		* sin(-0.05);
-	cub->gamer.dirY = oldDirX * sin(-0.05) + cub->gamer.dirY * cos(-0.05);
-	cub->gamer.planeX = cub->gamer.planeX * cos(-0.05) - cub->gamer.planeY
-		* sin(-0.05);
-	cub->gamer.planeY = oldPlaneX * sin(-0.05) + cub->gamer.planeY * cos(-0.05);
+	cub->gamer.dirX = cub->gamer.dirX * cos(-0.1) - cub->gamer.dirY
+		* sin(-0.1);
+	cub->gamer.dirY = oldDirX * sin(-0.1) + cub->gamer.dirY * cos(-0.1);
+	cub->gamer.planeX = cub->gamer.planeX * cos(-0.1) - cub->gamer.planeY
+		* sin(-0.1);
+	cub->gamer.planeY = oldPlaneX * sin(-0.1) + cub->gamer.planeY * cos(-0.1);
 }
 
 void	ft_strafe(int key, t_cub *cub)
@@ -81,18 +81,18 @@ void	ft_strafe(int key, t_cub *cub)
 	if (key == 2)
 	{
 		if (cub->map[(int)cub->gamer.posY][(int)(cub->gamer.posX
-			+ newDirX * 0.05)] == '0')
-			cub->gamer.posX += newDirX * 0.05;
-		if (cub->map[(int)(cub->gamer.posY + newDirY * 0.05)][(int)
+			+ newDirX * 0.1)] == '0')
+			cub->gamer.posX += newDirX * 0.1;
+		if (cub->map[(int)(cub->gamer.posY + newDirY * 0.1)][(int)
 				cub->gamer.posX] == '0')
-			cub->gamer.posY += newDirY * 0.05;
+			cub->gamer.posY += newDirY * 0.1;
 	}
 	if (key == 0)
 	{
 		if (cub->map[(int)cub->gamer.posY][(int)(cub->gamer.posX - newDirX
-			* 0.05)] == '0')
-			cub->gamer.posX -= newDirX * 0.05;
-		if (cub->map[(int)(cub->gamer.posY - newDirY * 0.05)]
+			* 0.1)] == '0')
+			cub->gamer.posX -= newDirX * 0.1;
+		if (cub->map[(int)(cub->gamer.posY - newDirY * 0.1)]
 			[(int)cub->gamer.posX] == '0')
 			cub->gamer.posY -= newDirY * 0.05;
 	}
